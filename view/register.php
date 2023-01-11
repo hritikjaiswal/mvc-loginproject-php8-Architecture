@@ -1,4 +1,7 @@
-<form action="/action_page.php">
+<?php if (isset($_SESSION['user_name'])) {
+    header('location: /mvc_loginproject/index.php?function=user');
+} ?>
+<form method="POST" name='myForm' action="/mvc_loginproject/index.php?controller=register&function=reg" enctype="multipart/form-data">
     <div class="container py-5">
         <div class="justify-content-center">
             <h3 class="mx-n3 mb-2 pb-2 pt-md-4 mb-md-4">Registration Form</h3>
@@ -41,7 +44,7 @@
             <div class="col-md-4 mb-4 align-items-center">
                 <div class="form-outline flex-fill mb-0">
                     <label class="form-label" for="form3Example4c">Password:</label>
-                    <input type="password" id="pass" class="form-control" name="detail[pass]" placeholder="Enter password" autocomplete="off" />
+                    <input type="password" id="pass" class="form-control" name="detail[password]" placeholder="Enter password" autocomplete="off" />
                     <small class="text-danger" id="error_pass"></small>
                 </div>
             </div>
@@ -53,12 +56,12 @@
                 </div>
             </div>
             <hr class="mx-n3 col-md-5 mb-3">
-            <div class="col-md-3 ps-1">
+            <!-- <div class="col-md-3 ps-1">
                 <h6 class="mb-4">Upload image</h6>
-            </div>
-            <div class="col-md-4 mb-4 align-items-center">
+            </div> -->
+            <!-- <div class="col-md-4 mb-4 align-items-center">
                 <input class="form-control form-control-lg file-input" id="fileUpload" type="file" name="file_upload" />
-                <!--  -->
+               
                 <p id="error1" style="display:none; color:#FF0000;">
                     Invalid Image Format! Image Format Must Be JPG, JPEG, PNG or GIF.
                 </p>
@@ -67,7 +70,7 @@
                 </p>
                 <div class="small text-muted mt-2">Upload your Image. Max file size 2 MB</div>
 
-            </div>
+            </div> -->
             
             <div class="row g-3 align-items-center">
                 <div class="col-auto">

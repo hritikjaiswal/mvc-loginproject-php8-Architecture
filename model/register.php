@@ -3,17 +3,13 @@
 class registerModel{
     public $register_detail;
 
+    public $con;
     function __construct(){
-        @include('/Applications/XAMPP/xamppfiles/htdocs/mvc_loginproject/model/home.php'); 
-        $this->register_detail = new models\homeModel();
+        $this->con = new \mysqli('localhost', 'root', '', 'mvc_detail'); 
     }
-    function insertDetail(){
-
-        
-
+    function con(){
+        return $this->con;
     }
-    
-
 }
 
 

@@ -6,15 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="/mvc_loginproject/public/script/index.php"></script>
+  <script src="/mvc_loginproject/public/script/jquery-3.6.1.min.js"></script>
+  <script src="/mvc_loginproject/public/script/index.js"></script>
+  <!-- -->
 </head>
 <style>
   html, body {padding:0; margin:0; height:100%;}
-  footer{bottom: 0; left: 0; right: 0;}
+  footer{bottom: 0; left: 0; right: 0; margin-top: 35%;}
 </style>
 <body>
-
-<nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark">
+<!-- fixed-top  -->
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
   <div class="container-fluid">
     <a class="navbar-brand" href="/mvc_loginproject/index.php">Logo</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
@@ -33,8 +35,17 @@
         </li>
       </ul>
       <form class="d-flex">
-        <a href=""><button class="btn mx-3 btn-outline-light" type="button">Login</button></a>
+        
+        <?php if (isset($_SESSION['id']) && !empty($_SESSION['id'])) {
+        ?>
+        <a href="/mvc_loginproject/index.php?function=user"><button class="btn mx-3 btn-outline-light" type="button">User</button></a>
+        <a href="/mvc_loginproject/index.php?controller=logout&function=logout"><button class="btn mx-3 btn-outline-light" type="button">Logout</button></a>
+
+        <?php } else { ?>
+          <a href="/mvc_loginproject/index.php?function=login"><button class="btn mx-3 btn-outline-light" type="button">Login</button></a>
+        
         <a href="/mvc_loginproject/index.php?function=register"><button class="btn btn-primary" type="button">Register</button></a>
+        <?php } ?>
       </form>
     </div>
   </div>
