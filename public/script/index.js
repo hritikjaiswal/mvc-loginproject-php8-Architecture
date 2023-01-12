@@ -45,7 +45,7 @@ $(document).ready(function () {
     }
 
     function validateFirstname() {
-        var name_filter = /^[a-zA-Z_-]$/;
+        var name_filter = /^[A-Za-z]+$/;
         var firstname = $('#firstName').val();
         if ($.trim(firstname).length == 0) {
             $('#error_firstname').show();
@@ -54,37 +54,28 @@ $(document).ready(function () {
             firstname_err = false;
             return false;
 
-        } else if (!(name_filter).test(firstname)) {
-            $('#error_firstname').show();
-            error_firstname = "*Please Enter Valide Name";
-            $('#error_firstname').html(error_firstname);
-            firstname_err = false;
-            return false;
-
-
-        } else {
+        }else {
             $('#error_firstname').hide();
         }
     }
     
-
     ////////////////////////////////////
 
 
-    // function checkEmail(email) {
-    //     // var email2 = $('.check_email').val();
-    //     // console.log(email);
-    //     $.ajax({
-    //         method: "POST",
-    //         url: "/login_project/public/ajax/registerEmail.php",
-    //         data: {
-    //             emailid: email
-    //         },
-    //         success: function (data) {
-    //             $('.email_error').html(data);
-    //         }
-    //     });
-    // }
+    function checkEmail(email) {
+        // var email2 = $('.check_email').val();
+        // console.log(email);
+        $.ajax({
+            method: "POST",
+            url: "/mvc_loginproject/public/ajax/registerEmail.php",
+            data: {
+                emailid: email
+            },
+            success: function (data) {
+                $('.email_error').html(data);
+            }
+        });
+    }
 
     $('#emailAddress').keyup(function () {
 
@@ -114,18 +105,13 @@ $(document).ready(function () {
             return false;
 
         } else {
-            // error_email = "";
-            // $('#error_email').text(error_email);
-            // checkEmail(emailAddress);
-
-
             error_email = "";
             $('#error_email').text(error_email);
-            $('#error_email').hide();
+            checkEmail(emailAddress);
 
+            // error_email = "";
+            // $('#error_email').text(error_email);
             // $('#error_email').hide();
-
-
         }
 
     }

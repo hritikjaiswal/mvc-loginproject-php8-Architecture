@@ -12,8 +12,6 @@ class loginController{
        $this->user = new  classController;
        $this->db = new homeModel;
     }
-    
-
     function login(){
         
         if($_SERVER["REQUEST_METHOD"] == "POST"){

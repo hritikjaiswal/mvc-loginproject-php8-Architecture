@@ -32,12 +32,12 @@
                 <h6 class="mb-2 pb-1">Gender: </h6>
 
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="detail[gender]" value="M" checked />
+                    <input class="form-check-input" type="radio" name="detail[gender]" value="M" checked/>
                     <label class="form-check-label" for="maleGender">Male</label>
                 </div>
 
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="detail[gender]" value="F" />
+                    <input class="form-check-input" type="radio" name="detail[gender]" value="F"/>
                     <label class="form-check-label" for="femaleGender">Female</label>
                 </div>
             </div>
